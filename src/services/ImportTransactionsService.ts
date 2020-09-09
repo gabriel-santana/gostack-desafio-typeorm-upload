@@ -33,8 +33,7 @@ class ImportTransactionsService {
         cell.trim(),
       );
 
-      if (!title || !type || !value) return;
-
+      if (!title || !type || !value || !category) return;
       categories.push(category);
       transactions.push({ title, type, value, category });
     });
@@ -70,7 +69,7 @@ class ImportTransactionsService {
         title: transaction.title,
         type: transaction.type,
         value: transaction.value,
-        catgory: finalCategories.find(
+        category: finalCategories.find(
           category => category.title === transaction.category,
         ),
       })),
